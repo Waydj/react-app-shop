@@ -6,8 +6,87 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#root {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+main {
+	flex: 1 0 auto;
+	min-height: calc(100vh - (70px + 64px));
+}
+.goods {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1em;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+}
+.card-content {
+	flex-grow: 1;
+}
+.price {
+	font-size: 1.2rem;
+	margin-left: .5em;
+}
+.cart {
+	position: fixed;
+	z-index: 5;
+	padding: 1em;
+	bottom: 2em;
+	right: 1em;
+	cursor: pointer;
+}
+@media (min-width: 767px ) {
+		.cart{
+			top: 5em;
+			right: 2em;
+			bottom: unset;
+	}
+}
+.cartList{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50rem;
+	max-width: 95%;
+	box-shadow: 8px 8px 12px -2px rgba(34, 60, 80, 0.69);
+	animation: show .3s ease-in-out;
+}
+.title-cart{
+	font-size: 1.4rem;
+}
+.closeCart{
+	cursor: pointer;
+	color:#fff;
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+}
+.del-item {
+	cursor: pointer;
+}
+.item-quantity {
+	align-items: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+@keyframes show {
+	from {
+		top: 70%;
+		opacity: 0;
+	} to {
+		top: 50%;
+		opacity: 1;
+	}
+}
+#toast-container {
+	top: 2rem
 }
